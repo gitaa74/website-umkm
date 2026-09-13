@@ -24,6 +24,7 @@ body {
     text-transform: uppercase;
 }
 
+<<<<<<< HEAD
 .products {
     padding-left: 1.2rem;
 }
@@ -31,11 +32,21 @@ body {
 button {
     padding: 12px 18px;
     color:#2f2118;
+=======
+.products{
+    padding-left: 1.2rem;
+}
+
+button{
+    padding: 12px 18px;
+    color: #2f2118;
+>>>>>>> afa515079e042ae69a2d5ed7ea5e4270d4743b70
     font-weight: 700;
     cursor: pointer;
     background: #ffd166;
     border: 0;
     border-radius: 999px;
+<<<<<<< HEAD
 
 }
 .promo-text {
@@ -46,4 +57,6 @@ button {
     color: #2f2118;
     border-radius: 12px;
     font-weight: bold;
+=======
+>>>>>>> afa515079e042ae69a2d5ed7ea5e4270d4743b70
 }
