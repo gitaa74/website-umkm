@@ -19,7 +19,6 @@
             <ul class="nav-list">
                 <li><a class="active" aria-current="page" href="index.html">Beranda</a></li>
                 <li><a href="tentang.html">Tentang Kami</a></li>
-                <li><a href="index.html#kontak">Kontak</a></li>
                 <li><a href="produk.html">Produk</a></li>
                 <li><a href="galeri.html">Galeri</a></li>
                 <li><a href="kontak.html">Kontak</a></li>
@@ -29,16 +28,14 @@
 
     <main id="konten" class="page">
         <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-copy">
-                <span class="eyebrow">Senja Coffee </span>
-                <h1>Senja Coffee</h1>
-                <p class="hero-desc">Nikmati racikan kopi pilihan untuk menemani waktu santai, menyelesaikan tugas, atau berbagi cerita bersama teman.</p>
-                <div class="hero-action">
-                    <button id="promoButton" type="button" aria-pressed="false">Cek Promo Hari Ini !!!</button>
-                </div>
-            </div>
-            <img src="assets/images/suasana_senja.png" alt="Suasana Depan Kedai Senja Coffee" class="hero-img" />
+           <section class="hero" aria-labelledby="hero-title">
+           <div class="hero-content">
+           <p class="eyebrow">UMKM Pekalongan</p>
+              <h1 id="hero-title">Senja Coffe</h1>
+           <p>Kopi lokal pilihan untuk teman belajar, bekerja, dan berdiskusi.</p>
+        <button>Lihat promo hari ini</button>
+        </div>
+            <img class="hero-image" src="assets/images/suasana_senja.png" alt="Suasana Depan Kedai Senja Coffee" class="hero-img" />
         </section>
 
         <section id="kontak" class="section" aria-labelledby="kontak-title">
@@ -127,7 +124,7 @@
     </main>
 
     <footer class="site-footer">
-        <p>&copy; 2026 Senja Coffee. Data pada halaman ini bersifat dummy.</p>
+                <p>&copy; 2026 Senja Coffee. Data pada halaman ini bersifat dummy.</p>
     </footer>
 
     <script src="js/script.js"></script>
