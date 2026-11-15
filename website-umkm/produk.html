@@ -17,7 +17,10 @@
                 <img class="brand-mark" src="assets/images/logo_senja_coffee.png" alt="logo Senja coffee" width="34" height="34">
                 Senja Coffee
             </a>
-            <ul class="nav-list">
+            <button class="nav-toggle" type="button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="primary-navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-list" id="primary-navigation">
                 <li><a href="index.html">Beranda</a></li>
                 <li><a href="tentang.html">Tentang Kami</a></li>
                 <li><a class="active" aria-current="page" href="produk.html">Produk</a></li>
@@ -39,6 +42,23 @@
                     class="about-img" />
             </div>
         </section>
+
+        <section class="product-section" aria-labelledby="produk-title">
+            <div class="section-heading">
+            <p class="eyebrow">Katalog</p>
+            <h2 id="produk-title">Produk Unggulan UMKM</h2>
+            <p id="produk-status" class="produk-status">Produk belum dimuat.</p>
+        </div>
+
+        <div class="filter-bar" aria-label="Filter kategori produk">
+         <button type="button" class="filter-button is-active" data-filter="Semua">Semua</button>
+        <button type="button" class="filter-button" data-filter="Kopi">Kopi</button>
+        <button type="button" class="filter-button" data-filter="Bundling">Bundling</button>
+        <button type="button" class="filter-button" data-filter="Aksesori">Aksesori</button>
+        </div>
+
+    <div id="produk-grid" class="product-grid" aria-live="polite"></div>
+    </section>
 
         <section class="section" aria-labelledby="kategori-title">
             <div class="section-head">
