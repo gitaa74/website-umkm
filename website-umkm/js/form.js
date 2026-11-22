@@ -1,19 +1,61 @@
 const form = document.querySelector("#form-kontak");
 const preview = document.querySelector("#preview-form");
+const fields = ["nama", "email", "whatsapp", "waktu", "paket", "pesan"].map((id) => document.querySelector(`#${id}`));
+const topikInputs = document.querySelectorAll('input[name="topik"]');
+
+function getFieldError(field) {
+  const validity = field.validity;
+
+  if (validity.valueMissing) return "Bagian ini wajib diisi.";
+  if (validity.typeMismatch) return "Format data belum sesuai.";
+  if (validity.tooShort) return `Isi minimal ${field.minLength} karakter.`;
+  if (validity.patternMismatch) return "Format belum sesuai contoh yang diminta.";
+
+  return "";
+}
+
+function tampilkanError(field, pesan) {
+  const error = document.querySelector(`#${field.id}-error`);
+  field.setCustomValidity(pesan);
+  field.setAttribute("aria-invalid", pesan ? "true" : "false");
+
+  if (error) {
+    error.textContent = pesan;
+  }
+}
+
+function validasiField(field) {
+  field.setCustomValidity("");
+  const pesan = getFieldError(field);
+  tampilkanError(field, pesan);
+  return pesan === "";
+}
+
+function tampilkanPreview() {
+  const data = new FormData(form);
+
+  preview.textContent = [
+    `Nama: ${data.get("nama")}`,
+    `Email: ${data.get("email")}`,
+    `WhatsApp: ${data.get("whatsapp")}`,
+    `Waktu Pengiriman: ${data.get("waktu")}`,
+    `Paket: ${data.get("paket")}`,
+    `Topik: ${data.get("topik")}`,
+    `Pesan: ${data.get("pesan")}`,
+  ].join("\n");
+}
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const data = new FormData(form);
+  const semuaValid = fields.every((field) => validasiField(field));
+  const topikValid = Array.from(topikInputs).some((input) => input.checked);
 
-  preview.textContent = [
-    `Nama             : ${data.get("nama")}`,
-    `Email            : ${data.get("email")}`,
-    `WhatsApp         : ${data.get("whatsapp")}`,
-    `Waktu kontak     : ${data.get("waktu")}`,
-    `Paket            : ${data.get("paket")}`,
-    `Topik            : ${data.get("topik")}`,
-    `Metode kontak    : ${data.get("metode")}`,
-    `Pesan            : ${data.get("pesan")}`
-  ].join("\n");
+  if (!semuaValid || !topikValid || !form.checkValidity()) {
+    form.reportValidity();
+    form.querySelector(":invalid")?.focus();
+    return;
+  }
+
+  tampilkanPreview();
 });
